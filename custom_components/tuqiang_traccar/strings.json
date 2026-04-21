@@ -1,0 +1,49 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "途强物联账号",
+        "description": "请输入您的途强物联登录信息",
+        "data": {
+          "username": "用户名",
+          "password": "密码"
+        }
+      },
+      "device_select": {
+        "title": "选择设备",
+        "description": "选择要转发到Traccar的设备",
+        "data": {
+          "devices": "设备"
+        }
+      },
+      "traccar_config": {
+        "title": "Traccar服务器配置",
+        "description": "配置Traccar服务器地址。注意：请使用设备上报端口（默认5055），而不是Web管理端口（8082）。\n例如：http://your-server-ip:5055",
+        "data": {
+          "traccar_url": "服务器URL",
+          "device_prefix": "设备标识前缀（可选）",
+          "update_interval": "上报间隔（秒）"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "用户名或密码错误",
+      "unknown": "未知错误"
+    },
+    "abort": {
+      "already_configured": "该账号已配置"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "选项",
+        "data": {
+          "traccar_url": "Traccar服务器URL",
+          "device_prefix": "设备标识前缀",
+          "update_interval": "上报间隔（秒）"
+        }
+      }
+    }
+  }
+}
