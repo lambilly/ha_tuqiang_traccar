@@ -1,1 +1,49 @@
-
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Tuqiang.net Account",
+        "description": "Enter your Tuqiang.net credentials",
+        "data": {
+          "username": "Username",
+          "password": "Password"
+        }
+      },
+      "device_select": {
+        "title": "Select Devices",
+        "description": "Choose which devices to forward to Traccar",
+        "data": {
+          "devices": "Devices"
+        }
+      },
+      "traccar_config": {
+        "title": "Traccar Server Configuration",
+        "description": "Configure Traccar server address. Note: Use the device reporting port (default 5055), not the web admin port (8082).\nExample: http://192.168.1.110:5055",
+        "data": {
+          "traccar_url": "Server URL",
+          "device_prefix": "Device identifier prefix (optional)",
+          "update_interval": "Update interval (seconds)"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid username or password",
+      "unknown": "Unknown error"
+    },
+    "abort": {
+      "already_configured": "This account is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Options",
+        "data": {
+          "traccar_url": "Traccar Server URL",
+          "device_prefix": "Device identifier prefix",
+          "update_interval": "Update interval (seconds)"
+        }
+      }
+    }
+  }
+}

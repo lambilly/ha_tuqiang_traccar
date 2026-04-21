@@ -1,0 +1,48 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "title": "途强物联账号",
+                "description": "请输入您的途强物联 https://www.tuqiang.net 登录信息",
+                "data": {
+                    "username": "用户名",
+                    "password": "密码"
+                }
+            },
+            "device_select": {
+                "title": "选择设备",
+                "description": "请选择需要转发到 Traccar 的设备",
+                "data": {
+                    "devices": "设备列表"
+                }
+            },
+            "traccar_config": {
+                "title": "Traccar 服务器配置",
+                "description": "配置 Traccar 服务器接入信息。\n请注意：此处应填写Traccar客户端的端口（默认5055），而不是Web管理端口。",
+                "data": {
+                    "traccar_url": "Traccar 服务器地址（含端口，例如 http://192.168.1.100:5055）",
+                    "device_prefix": "设备标识符前缀（可选，默认IMEI）",
+                    "update_interval": "上报间隔（秒）"
+                }
+            }
+        },
+        "error": {
+            "invalid_auth": "登录失败，请检查用户名或密码"
+        },
+        "abort": {
+            "already_configured": "该账号已配置"
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "title": "选项",
+                "data": {
+                    "traccar_url": "Traccar 服务器地址",
+                    "device_prefix": "设备标识符前缀",
+                    "update_interval": "上报间隔（秒）"
+                }
+            }
+        }
+    }
+}
