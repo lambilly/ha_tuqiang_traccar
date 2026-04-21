@@ -122,5 +122,5 @@
 
 - [Home Assistant](https://www.home-assistant.io/)
 - [Traccar](https://www.traccar.org/)
-- [途强物联平台](https://www.traccar.org/)
+- [途强物联平台](https://www.tuqiang.net/)
 - [dscao](https://github.com/dscao/cloud_gps)
