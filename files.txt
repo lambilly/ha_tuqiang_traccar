@@ -1,10 +1,11 @@
 custom_components/tuqiang_traccar/
-├── translations/
-│   ├── en.json
-│   └── zh-Hans.json
-├── __init__.py
-├── config_flow.py
-├── const.py
 ├── manifest.json
-├── strings.json
-└── tuqiangnet_data_fetcher.py
+├── const.py
+├── config_flow.py
+├── __init__.py
+├── tuqiangnet_fetcher.py      # 途强物联数据获取器 (www.tuqiang.net)
+├── tuqiang123_fetcher.py      # 途强在线数据获取器 (www.tuqiang123.com)
+├── translations/
+│   ├── zh-Hans.json
+│   └── en.json (可选)
+└── services.yaml (可选)
