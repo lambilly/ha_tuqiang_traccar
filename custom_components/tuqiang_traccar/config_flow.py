@@ -125,9 +125,11 @@ class TuqiangTraccarConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                         CONF_DEVICE_PREFIX: user_input.get(CONF_DEVICE_PREFIX, ""),
                         CONF_UPDATE_INTERVAL: user_input[CONF_UPDATE_INTERVAL],
                     }
-                    unique_id = f"{self._platform}_{self._username}"
+                    # ---------- 修改点：unique_id 包含服务器地址 ----------
+                    unique_id = f"{self._platform}_{self._username}_{config_data[CONF_TRACCAR_URL]}"
                     await self.async_set_unique_id(unique_id)
                     self._abort_if_unique_id_configured()
+
                     return self.async_create_entry(
                         title=f"途强转Traccar ({self._platform} - {self._username})",
                         data=config_data
@@ -159,13 +161,15 @@ class TuqiangTraccarOptionsFlow(config_entries.OptionsFlow):
 
     async def async_step_init(self, user_input=None):
         if user_input is not None:
+            # 防止修改 Traccar URL 导致 unique_id 失效 -- 此处直接去掉 URL 字段，或忽略修改
+            # 在这里我们直接返回用户输入，但不包含 URL（若表单中无 URL 字段）
             return self.async_create_entry(title="", data=user_input)
 
         options = self.config_entry.options
         data = self.config_entry.data
 
+        # 移除 Traccar URL 字段，只允许修改前缀和间隔
         schema = vol.Schema({
-            vol.Required(CONF_TRACCAR_URL, default=options.get(CONF_TRACCAR_URL, data.get(CONF_TRACCAR_URL, ""))): str,
             vol.Optional(CONF_DEVICE_PREFIX, default=options.get(CONF_DEVICE_PREFIX, data.get(CONF_DEVICE_PREFIX, ""))): str,
             vol.Optional(CONF_UPDATE_INTERVAL, default=options.get(CONF_UPDATE_INTERVAL, data.get(CONF_UPDATE_INTERVAL, DEFAULT_UPDATE_INTERVAL))): vol.All(vol.Coerce(int), vol.Range(min=10, max=3600)),
         })
